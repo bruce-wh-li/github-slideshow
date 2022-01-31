@@ -15,9 +15,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
+        fetch-depth: 2
+        projectBaseDir: .
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: aaf244a67ffcdb2b30c21cb6e2d234749cdfb047
+        SONAR_HOST_URL: https://sonarqube-59e31e-tools.apps.klab.devops.gov.bc.ca
+       
