@@ -22,4 +22,4 @@ jobs:
       env:
         SONAR_TOKEN: aaf244a67ffcdb2b30c21cb6e2d234749cdfb047
         SONAR_HOST_URL: https://sonarqube-59e31e-tools.apps.klab.devops.gov.bc.ca
-       
+        sonar.projectKey: secruity_pipeline_templates       
