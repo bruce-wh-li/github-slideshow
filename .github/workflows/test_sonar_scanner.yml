@@ -9,8 +9,6 @@ on:
       - master
   pull_request:
       types: [opened, synchronize, reopened]
-  
-name: test_sonar
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
