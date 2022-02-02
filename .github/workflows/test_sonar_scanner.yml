@@ -1,26 +1,27 @@
+name: sonar scanner 
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
+  workflow_dispatch:
+  
   push:
     branches:
       - master
   pull_request:
       types: [opened, synchronize, reopened]
-  workflow_dispatch:
+  
 name: test_sonar
-
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
-
-- name: Setup sonarqube
-  uses: warchant/setup-sonar-scanner@v3
-- name: Run sonarqube
-  env:
-    # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  run: sonar-scanner
+     - name: Setup sonarqube
+       uses: warchant/setup-sonar-scanner@v3
+     - name: Run sonarqube
+       env:
+       # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       run: sonar-scanner
        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
        -Dsonar.organization=Brucde Li
        -Dsonar.host.url=https://sonarcloud.io/
