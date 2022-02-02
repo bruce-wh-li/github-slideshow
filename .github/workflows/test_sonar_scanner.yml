@@ -15,7 +15,7 @@ jobs:
     steps:
      - name: Setup sonarqube
        uses: warchant/setup-sonar-scanner@v3
-     - name: Run sonarqube
+     - name: Run -X sonarqube
        env:
        # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
